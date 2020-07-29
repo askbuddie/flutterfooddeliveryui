@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                           overflow: Overflow.visible,
                           children: <Widget>[
                             buildPopularFood(),
-//                            buildTopFood(),
+                            // buildTopFood(),
                             Positioned(
                               top: -80,
                               child: buildTopFood(),
@@ -195,10 +195,12 @@ class _HomePageState extends State<HomePage> {
               Text(
                 'Popular Foods',
                 style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black)),
+                  textStyle: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                  ),
+                ),
               ),
               Text(
                 'View all',
@@ -210,7 +212,7 @@ class _HomePageState extends State<HomePage> {
               )
             ],
           ),
-          verticalMargin(40),
+          verticalMargin(20),
           Container(
             height: 240,
             child: ListView.builder(
@@ -229,9 +231,21 @@ class _HomePageState extends State<HomePage> {
                       alignment: Alignment.bottomCenter,
                       children: <Widget>[
                         Container(
+                          margin: EdgeInsets.symmetric(horizontal: 5),
                           width: 220.0,
                           height: 200,
-                          child: Card(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: <BoxShadow>[
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.1),
+                                  spreadRadius: 4,
+                                  blurRadius: 4,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                            ),
                             child: Container(
                               padding: EdgeInsets.all(8.0),
                               child: Column(
@@ -239,51 +253,60 @@ class _HomePageState extends State<HomePage> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
-                                  verticalMargin(40.0),
-                                  Text(
-                                    popularItems[index].foodName,
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.w500)),
-                                  ),
-                                  verticalMargin(marginMedium),
-                                  Row(
+                                  Expanded(
+                                      child: Column(
                                     children: <Widget>[
-                                      Icon(
-                                        Icons.location_on,
-                                        color: Colors.redAccent,
-                                      ),
-                                      horizontalMargin(4.0),
+                                      verticalMargin(40.0),
                                       Text(
-                                        popularItems[index].location,
+                                        popularItems[index].foodName,
                                         style: GoogleFonts.poppins(
-                                            textStyle: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12.0)),
-                                      )
-                                    ],
-                                  ),
-                                  verticalMargin(marginMedium),
-                                  RatingBar(
-                                    onRatingUpdate: (s) {},
-                                    initialRating:
-                                        popularItems[index].foodRating,
-                                    itemSize: 16,
-                                    glowColor: Colors.orange,
-                                    itemBuilder: (context, _) => Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                    ),
-                                  ),
-                                  verticalMargin(marginSmall),
-                                  Text(
-                                    '\$ ${popularItems[index].foodPrice}',
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
+                                          textStyle: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                      verticalMargin(marginMedium),
+                                      Row(
+                                        children: <Widget>[
+                                          Icon(
+                                            Icons.location_on,
                                             color: Colors.redAccent,
-                                            fontSize: 18.0)),
-                                  )
+                                          ),
+                                          horizontalMargin(4.0),
+                                          Text(
+                                            popularItems[index].location,
+                                            style: GoogleFonts.poppins(
+                                                textStyle: TextStyle(
+                                                    color: Colors.grey,
+                                                    fontSize: 12.0)),
+                                          )
+                                        ],
+                                      ),
+                                      verticalMargin(marginMedium),
+                                      RatingBar(
+                                        onRatingUpdate: (s) {},
+                                        initialRating:
+                                            popularItems[index].foodRating,
+                                        itemSize: 16,
+                                        glowColor: Colors.orange,
+                                        itemBuilder: (context, _) => Icon(
+                                          Icons.star,
+                                          color: Colors.amber,
+                                        ),
+                                      ),
+                                      verticalMargin(marginSmall),
+                                      Text(
+                                        '\$ ${popularItems[index].foodPrice}',
+                                        style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                            color: Colors.redAccent,
+                                            fontSize: 18.0,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )),
                                 ],
                               ),
                             ),

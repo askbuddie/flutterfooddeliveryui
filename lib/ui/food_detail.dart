@@ -5,13 +5,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FoodDetail extends StatelessWidget {
-
   final colorRed = Colors.redAccent.withOpacity(0.7);
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -20,7 +17,7 @@ class FoodDetail extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              buildProductImage(),
+              buildProductImage(context),
               verticalMargin(16.0),
               buildProductTitle(),
               verticalMargin(20.0),
@@ -45,24 +42,20 @@ class FoodDetail extends StatelessWidget {
                 ],
               ),
               verticalMargin(20.0),
-              Text('Overview',
-              style: GoogleFonts.poppins(
-                textStyle: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16.0
-                )
-              ),),
+              Text(
+                'Overview',
+                style: GoogleFonts.poppins(
+                    textStyle:
+                        TextStyle(fontWeight: FontWeight.w400, fontSize: 16.0)),
+              ),
               verticalMargin(8.0),
               Expanded(
-                child: Text('Lorem Ipsum is simply dupesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since thes, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised the release of Letraset sheets containing Lorem Ipsum passages, and more recenp publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14.0
-                  )
-                ),),
+                child: Text(
+                  'Lorem Ipsum is simply dupesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since thes, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised the release of Letraset sheets containing Lorem Ipsum passages, and more recenp publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(color: Colors.grey, fontSize: 14.0)),
+                ),
               )
-              
             ],
           ),
         ),
@@ -70,23 +63,30 @@ class FoodDetail extends StatelessWidget {
     );
   }
 
-  buildProductImage() {
+  buildProductImage(BuildContext context) {
     return Stack(
       children: <Widget>[
         Container(
           padding: const EdgeInsets.all(8.0),
           height: 340,
           child: Center(
-            child: Image.asset('images/salad.jpeg',
+            child: Image.asset(
+              'images/salad.jpeg',
               width: 300,
-              height: 200.0,),
+              height: 200.0,
+            ),
           ),
         ),
         Positioned(
           top: 20,
           left: 0,
-          child: Icon(Icons.arrow_back_ios,
-            color: Colors.grey,),
+          child: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            color: Colors.grey,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ),
         Positioned(
           right: 10,
@@ -111,37 +111,34 @@ class FoodDetail extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Chicken Wadges',
-            style: GoogleFonts.poppins(
-              textStyle: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w400
-              )
-            ),),
+            Text(
+              'Chicken Wadges',
+              style: GoogleFonts.poppins(
+                  textStyle:
+                      TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400)),
+            ),
             verticalMargin(8.0),
             Row(
               children: <Widget>[
-                Icon(Icons.location_on,
-                  color: colorRed,),
+                Icon(
+                  Icons.location_on,
+                  color: colorRed,
+                ),
                 horizontalMargin(4.0),
-                Text('Rio Cafe',
+                Text(
+                  'Rio Cafe',
                   style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 14.0
-                      )
-                  ),)
+                      textStyle: TextStyle(color: Colors.grey, fontSize: 14.0)),
+                )
               ],
             )
           ],
         ),
-        Text('\$ 80',
-        style: GoogleFonts.poppins(
-          textStyle: TextStyle(
-            color: colorRed,
-            fontSize: 20
-          )
-        ),)
+        Text(
+          '\$ 80',
+          style: GoogleFonts.poppins(
+              textStyle: TextStyle(color: colorRed, fontSize: 20)),
+        )
       ],
     );
   }
