@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_challenge/utils/widget_utils.dart';
 import 'package:flutter_challenge/widgets/custom_text.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class FoodDetail extends StatelessWidget {
   final colorRed = Colors.redAccent.withOpacity(0.7);
@@ -12,53 +11,49 @@ class FoodDetail extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-            padding: EdgeInsets.all(16.0),
-            color: Colors.white,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                buildProductImage(context),
-                verticalMargin(16.0),
-                buildProductTitle(),
-                verticalMargin(20.0),
-                Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          CustomText(
-            prefixIcon: Icons.star,
-            text: '4.5',
-            iconColor: Colors.orange,
-          ),
-          CustomText(
-            prefixIcon: Icons.access_time,
-            text: '18 min',
-            iconColor: colorRed,
-          ),
-          CustomText(
-            prefixIcon: FontAwesomeIcons.locationArrow,
-            text: '2.3 km',
-            iconColor: colorRed,
-          )
-        ],
+          padding: EdgeInsets.all(16.0),
+          color: Colors.white,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              buildProductImage(context),
+              verticalMargin(16.0),
+              buildProductTitle(),
+              verticalMargin(20.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  CustomText(
+                    prefixIcon: Icons.star,
+                    text: '4.5',
+                    iconColor: Colors.orange,
+                  ),
+                  CustomText(
+                    prefixIcon: Icons.access_time,
+                    text: '18 min',
+                    iconColor: colorRed,
+                  ),
+                  CustomText(
+                    prefixIcon: FontAwesomeIcons.locationArrow,
+                    text: '2.3 km',
+                    iconColor: colorRed,
+                  )
+                ],
+              ),
+              verticalMargin(20.0),
+              Text('Overview',
+                  style:
+                      TextStyle(fontWeight: FontWeight.w400, fontSize: 16.0)),
+              verticalMargin(8.0),
+              Expanded(
+                child: Text(
+                  'Lorem Ipsum is simply dupesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since thes, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised the release of Letraset sheets containing Lorem Ipsum passages, and more recenp publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                  style: TextStyle(color: Colors.grey, fontSize: 14.0),
                 ),
-                verticalMargin(20.0),
-                Text(
-        'Overview',
-        style: GoogleFonts.poppins(
-            textStyle:
-                TextStyle(fontWeight: FontWeight.w400, fontSize: 16.0)),
-                ),
-                verticalMargin(8.0),
-                Expanded(
-        child: Text(
-          'Lorem Ipsum is simply dupesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since thes, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised the release of Letraset sheets containing Lorem Ipsum passages, and more recenp publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-          style: GoogleFonts.poppins(
-              textStyle: TextStyle(color: Colors.grey, fontSize: 14.0)),
+              )
+            ],
+          ),
         ),
-                )
-              ],
-            ),
-          ),
       ),
     );
   }
@@ -111,12 +106,8 @@ class FoodDetail extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              'Chicken Wadges',
-              style: GoogleFonts.poppins(
-                  textStyle:
-                      TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400)),
-            ),
+            Text('Chicken Wadges',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400)),
             verticalMargin(8.0),
             Row(
               children: <Widget>[
@@ -127,8 +118,7 @@ class FoodDetail extends StatelessWidget {
                 horizontalMargin(4.0),
                 Text(
                   'Rio Cafe',
-                  style: GoogleFonts.poppins(
-                      textStyle: TextStyle(color: Colors.grey, fontSize: 14.0)),
+                  style: TextStyle(color: Colors.grey, fontSize: 14.0),
                 )
               ],
             )
@@ -136,8 +126,7 @@ class FoodDetail extends StatelessWidget {
         ),
         Text(
           '\$ 80',
-          style: GoogleFonts.poppins(
-              textStyle: TextStyle(color: colorRed, fontSize: 20)),
+          style: TextStyle(color: colorRed, fontSize: 20),
         )
       ],
     );

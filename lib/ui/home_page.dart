@@ -5,7 +5,6 @@ import 'package:flutter_challenge/ui/food_detail.dart';
 import 'package:flutter_challenge/utils/food_repository.dart';
 import 'package:flutter_challenge/utils/widget_utils.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/my_drawer.dart';
 
@@ -66,7 +65,6 @@ class _HomePageState extends State<HomePage> {
                           overflow: Overflow.visible,
                           children: <Widget>[
                             buildPopularFood(),
-                            // buildTopFood(),
                             Positioned(
                               top: -80,
                               child: buildTopFood(),
@@ -126,9 +124,13 @@ class _HomePageState extends State<HomePage> {
             minRadius: 24.0,
           ),
           horizontalMargin(marginMedium),
-          Text("How Hungry are You Today?",
-              style: GoogleFonts.poppins(
-                  fontSize: 18.0, fontWeight: FontWeight.w500))
+          Text(
+            "How Hungry are You Today?",
+            style: TextStyle(
+              fontSize: 18.0,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
         ],
       ),
     );
@@ -156,9 +158,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   border: InputBorder.none,
                   hintText: "Search food items",
-                  hintStyle: GoogleFonts.poppins(
-                      textStyle:
-                          TextStyle(color: Colors.grey, fontSize: 12.0))),
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0)),
             ),
           )),
           horizontalMargin(marginSmall),
@@ -194,22 +194,20 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               Text(
                 'Popular Foods',
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black,
-                  ),
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black,
                 ),
               ),
               Text(
                 'View all',
-                style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFFAFE0E2))),
-              )
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFFAFE0E2),
+                ),
+              ),
             ],
           ),
           verticalMargin(20),
@@ -259,11 +257,9 @@ class _HomePageState extends State<HomePage> {
                                       verticalMargin(40.0),
                                       Text(
                                         popularItems[index].foodName,
-                                        style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                        style: TextStyle(
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
                                       verticalMargin(marginMedium),
@@ -276,11 +272,10 @@ class _HomePageState extends State<HomePage> {
                                           horizontalMargin(4.0),
                                           Text(
                                             popularItems[index].location,
-                                            style: GoogleFonts.poppins(
-                                                textStyle: TextStyle(
-                                                    color: Colors.grey,
-                                                    fontSize: 12.0)),
-                                          )
+                                            style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 12.0),
+                                          ),
                                         ],
                                       ),
                                       verticalMargin(marginMedium),
@@ -298,11 +293,9 @@ class _HomePageState extends State<HomePage> {
                                       verticalMargin(marginSmall),
                                       Text(
                                         '\$ ${popularItems[index].foodPrice}',
-                                        style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                            color: Colors.redAccent,
-                                            fontSize: 18.0,
-                                          ),
+                                        style: TextStyle(
+                                          color: Colors.redAccent,
+                                          fontSize: 18.0,
                                         ),
                                       ),
                                     ],
@@ -368,7 +361,6 @@ class _HomePageState extends State<HomePage> {
                       BoxShadow(
                         color: Colors.black.withOpacity(0.3),
                         blurRadius: 2.0,
-//                    spreadRadius: 2.0
                       )
                     ]),
                 child: Column(
@@ -382,10 +374,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Text(
                       topItems[index].foodName,
-                      style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                              fontSize: 12.0, fontWeight: FontWeight.w400)),
-                    )
+                      style: TextStyle(
+                          fontSize: 12.0, fontWeight: FontWeight.w400),
+                    ),
                   ],
                 ),
               ),

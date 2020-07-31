@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_challenge/utils/widget_utils.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CustomText extends StatelessWidget {
   final IconData prefixIcon;
   final String text;
   final Color iconColor;
 
-  CustomText({this.prefixIcon, this.text, this.iconColor});
+  CustomText(
+      {@required this.prefixIcon,
+      @required this.text,
+      @required this.iconColor});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class CustomText extends StatelessWidget {
         horizontalMargin(8.0),
         Text(
           text,
-          style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14.0)),
+          style: TextStyle(fontSize: 14.0),
         )
       ],
     );
